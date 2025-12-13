@@ -1,0 +1,51 @@
+.uploadButton, .clearRecsButton, 
+.publishButton, .clearArticlesButton {
+    width: 30%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    color: white;
+}
+
+.pageContainer {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.recUpload {
+    display: flex;
+    flex-direction: column;
+}
+
+.clearRecsButton {
+    width: 90%;
+}
+
+.recInput {
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.recInput:focus {
+    border: none;
+    outline: 1px solid brown;
+}
+
+.uploadButton {
+    background-color: cadetblue;
+}
+
+.clearRecsButton {
+    background-color: goldenrod;
+    width: 100%;
+}
+
+.publishButton {
+    background-color: crimson;
+}
+
+.clearArticlesButton {
+    background-color:goldenrod;
+    width: 100%;
+}

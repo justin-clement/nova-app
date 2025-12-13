@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Libertinus Sans";
+    src: url("./assets/fonts/LibertinusSans-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, button, input {
+    font-family: 'Libertinus Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 21px;
+}
+
+#root {
+    font-family: "Libertinus Sans", serif;
+}

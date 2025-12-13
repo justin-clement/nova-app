@@ -1,0 +1,34 @@
+.signup-success, .signup-fail {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.signup-success, .signup-fail {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-success {
+    color: darkgreen;
+}
+
+.signup-fail {
+    color: crimson;
+}
+
+.fail-return-reg, .fail-return-home {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.fail-return-reg:hover, .fail-return-home:hover {
+    outline: 1px solid blue;
+}

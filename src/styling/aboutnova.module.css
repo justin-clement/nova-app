@@ -1,0 +1,46 @@
+.pageContainer {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    font-size: 21px;
+}
+
+.header {
+    color: #123499;
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.backHomeButton {
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+    color: white;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.backHomeButton:hover {
+    background-color: #123499;
+    transform: scale(1.03);
+}
+
+@media (min-width: 768px) {
+    .pageContainer {
+        max-width: 900px;
+    }
+    .backHomeButton {
+        width: 30vw;
+    }
+}

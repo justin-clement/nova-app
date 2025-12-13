@@ -1,0 +1,39 @@
+.signup-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-input {
+    margin: 3px;
+    width: 250px;
+    padding: 7px;
+    border-radius: 5px;
+    outline: 1px solid black;
+    font-family: 'Libertinus Sans';
+    font-size: large;
+    border: none;
+}
+
+.signup-input:focus {
+    outline: 2px solid plum;
+}
+
+.account-create-button {
+    padding: 10px;
+    width: 50%;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: brown;
+}
+
+.hidden {
+    display: none;
+}

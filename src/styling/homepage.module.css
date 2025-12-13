@@ -1,0 +1,56 @@
+.homepageContainer {
+    color: brown;
+}
+
+.heroSection {
+    border: 1px solid gray;
+    padding: 2rem 1rem;
+    height: 50vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.learnMoreButton {
+    width: 100%;
+    max-width: 350px;
+    padding: 1rem;
+    cursor: pointer;
+    color: white;
+    /* background-color: #123499; */
+    background-color: brown;
+    border: none;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.learnMoreButton:hover {
+    transform: scale(1.05);
+    background-color: #0e255c;
+}
+
+.authSection {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+    .heroSection {
+        max-width: 900px;
+    }
+    .learnMoreButton {
+        width: 60%;
+    }
+}
+

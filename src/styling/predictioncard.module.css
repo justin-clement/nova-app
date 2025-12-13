@@ -1,0 +1,55 @@
+.predictionCard {
+    background-color: whitesmoke;
+    color: #123499;
+    outline: 1px solid #123499;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 500px;
+    padding: 1rem;
+    box-shadow: 1px 3px 10px rgba(18, 52, 153, 0.1);
+    margin: 0.5rem auto;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+.predictionCard:hover {
+    box-shadow: 2px 6px 20px rgba(18, 52, 153, 0.2);
+    outline: 2px solid #123499;
+}
+
+.leagueName, .teamsPlaying, 
+.recommendationHeading, .recommendation {
+    text-align: center;
+    font-family: "Libertinus Sans", "Trebuchet MS", "Times New Roman";
+    font-weight: bold;
+    margin: 10px;
+}
+
+.leagueName {
+    font-size: 1rem;
+    color: goldenrod;
+}
+
+.teamsPlaying {
+    font-size: 25px;
+    margin: 1rem;
+    color: brown;
+}
+
+.recommendationHeading {
+    font-size: 18px;
+}
+
+
+.recommendation {
+    font-size: 21px;
+    color: green;
+}
+
+@media (max-width: 600px) {
+    .predictionCard {
+        padding: 0.5rem;
+    }
+    .teamsPlaying {
+        font-size: 25px;
+    }
+}
