@@ -56,6 +56,16 @@
     color: #f8feff;
 }
 
+.logoutButton {
+    background-color: #123499;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 7px;
+    margin: 5px;
+    cursor: pointer;
+}
+
 @media (min-width: 768px) {
     .userNavigation {
         width: 900px;

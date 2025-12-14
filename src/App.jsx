@@ -12,6 +12,7 @@ import SubscriptionBadge from './components/SubscriptionBadge'
 import HowWeOperate from './pages/HowWeOperate';
 import Messages from './pages/Messages';
 import AdminPage from './pages/AdminPage'
+import HomeArticle from './components/HomeArticle'
 
 const router = createBrowserRouter([
   {path: "/", element: <Homepage />},
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
     home="RB Leipzig" 
     away="Borussia Dortmund"
     recommendation="Over 2.5 goals" /> },
-  {path: "/test2", element: <SubscriptionBadge subscription="NOVA B" />}
+  {path: "/test2", element: <SubscriptionBadge subscription="NOVA B" />}, 
+  {path: "/homeArticle", element: <HomeArticle 
+    title="Supernova is LIVE!" 
+    content="Supernova is now live for all users. The ARCTURUS logic engine is 
+    now operational with an accuracy of 74%. Users can choose a subscription plan that suits them." />}
 ])
 
 

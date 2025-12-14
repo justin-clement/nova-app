@@ -12,6 +12,14 @@ function Subscription({ subscriptionType, message}) {
         displayMessage: null
     });
 
+    const novaSubA = () => {
+        window.open("https://paystack.shop/pay/nova-a", "_blank", "noopener,noreferrer");
+    };
+
+    const novaSubB = () => {
+        window.open("https://paystack.shop/pay/nova-b", "_blank", "noopener,noreferrer");
+    };
+
     const setSubscriptionInfo = () => {
         setUserDetails({
             subscription: subscriptionType, 
@@ -33,6 +41,7 @@ function Subscription({ subscriptionType, message}) {
                 {userDetails.subscription === false && <h2>{userDetails.displayMessage}</h2>}
                 {userDetails.subscription && <SubscriptionBadge subscription={userDetails.subscription} />}
                 {userDetails.subscription && <p><i>{userDetails.displayMessage}</i></p>}
+                
                 <SubscriptionBadge subscription="NOVA B" />
             </div>
             <br />
@@ -53,7 +62,9 @@ function Subscription({ subscriptionType, message}) {
                         recommendations (<i>e.g. if we release 7 recommendations, you receive 4</i>).
                     </p>
                     <br />
-                    <button className={styles.aButton}>Subscribe to NOVA A @ N4500</button>
+                    <button 
+                    onClick={novaSubA}
+                    className={styles.aButton}>Subscribe to NOVA A @ N4500</button>
                 </motion.div>
                 <br />
 
@@ -69,7 +80,9 @@ function Subscription({ subscriptionType, message}) {
                         matchdays. Seven out of seven, ten out of ten. You get everything.
                     </p>
                     <br />
-                    <button className={styles.bButton}>Subscribe to NOVA B @ N8000</button>
+                    <button 
+                    onClick={novaSubB}
+                    className={styles.bButton}>Subscribe to NOVA B @ N8000</button>
                 </motion.div>
             </div>
 

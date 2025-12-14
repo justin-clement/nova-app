@@ -112,6 +112,18 @@ function UserProfile() {
         displayMessage: null
     });
 
+    const logout = async () => {
+        const url = 'http://localhost:8000/logout';
+        try {
+            const { data } = await axios.get(url, { withCredentials: true });
+            if (data.status) {
+                window.location.href = 'http://localhost:8000/';
+            }
+        } catch (error) {
+            console.error("An error occured during logout.")
+        };
+    }
+
     // THIS CHECKS IF THE USER HAS A VALID SUBSCRIPTION.
     useEffect(() => {
         const getUserSub = async () => {
@@ -188,6 +200,11 @@ function UserProfile() {
                                         content={info[1]} />
                                     )) 
                                     : null}
+
+                                    <HomeArticle 
+                                    title="Supernova is LIVE!" 
+                                    content="Supernova is now live for all users. The ARCTURUS logic engine is 
+                                    now operational with an accuracy of 74%. Users can choose a subscription plan that suits them." />
                                 </div>
                                 
                             </div> 
@@ -201,6 +218,9 @@ function UserProfile() {
                         }}>To know more about how we operate, e.g. leagues or matches our services span across,
                             you can check <Link to="/operation">here</Link>. If you have questions, suggestions, or would like to contact us, 
                             you can leave a message <Link to="/message">here</Link>.</p>
+
+                        <button className={styles.logoutButton}
+                        onClick={logout}>Log Out</button>
                     </div>
                 </div>
             </div>
