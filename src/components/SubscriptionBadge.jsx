@@ -12,7 +12,7 @@ function SubscriptionBadge({ subscription }) {
             border: "3px solid white",
             backgroundColor: subscription === "NOVA A" ? "#009c41" : "#2626be",
             color: "whitesmoke",
-            fontFamily: "Trebuchet MS",
+            fontFamily: "Geom",
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
             margin: "0 auto"
         }

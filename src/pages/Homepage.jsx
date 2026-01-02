@@ -3,6 +3,7 @@ import styles from '../styling/homepage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import SignIn from './SignIn';
 
+
 function Homepage() {
     
     const navigate = useNavigate();

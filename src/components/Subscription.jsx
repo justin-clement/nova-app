@@ -4,12 +4,12 @@ import SubscriptionBadge from "./SubscriptionBadge";
 import styles from '../styling/subscriptions.module.css'
 
 
-function Subscription({ subscriptionType, message}) {
+function Subscription({ details }) {
 
     // STATE TO STORE A USER'S SUBSCRIPTION DETAILS.
     const [userDetails, setUserDetails] = useState({
-        subscription: null, 
-        displayMessage: null
+        subscription: details.subscription, 
+        validityMessage: details.validityMessage
     });
 
     const novaSubA = () => {
@@ -20,14 +20,13 @@ function Subscription({ subscriptionType, message}) {
         window.open("https://paystack.shop/pay/nova-b", "_blank", "noopener,noreferrer");
     };
 
-    const setSubscriptionInfo = () => {
+    useEffect(() => {
         setUserDetails({
-            subscription: subscriptionType, 
-            displayMessage: message
+            subscription: details.subscription, 
+            displayMessage: details.displayMessage, 
+            validity: details.validity
         })
-    };
-
-    useEffect(setSubscriptionInfo, [])
+    }, [details]);
 
 
     return (
@@ -43,6 +42,7 @@ function Subscription({ subscriptionType, message}) {
                 {userDetails.subscription && <p><i>{userDetails.displayMessage}</i></p>}
                 
                 <SubscriptionBadge subscription="NOVA B" />
+                <p></p>
             </div>
             <br />
             
@@ -90,7 +90,7 @@ function Subscription({ subscriptionType, message}) {
             <p style={{textAlign: "center", 
                         fontSize: "14px", 
                         color: "grey"
-            }}>Each subscription is valid for 28 days (4 match weekends).</p>
+            }}>Each subscription is valid for 30 days.</p>
         </div>
     )
 };

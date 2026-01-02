@@ -5,11 +5,25 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Geom';
+    src: url("./assets/fonts/Geom-VariableFont_wght.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geom Italic";
+    src: url("./assets/fonts/Geom-Italic-VariableFont_wght.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
 body, button, input {
-    font-family: 'Libertinus Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Geom', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 21px;
 }
 
 #root {
-    font-family: "Libertinus Sans", serif;
+    font-family: "Geom", serif;
 }

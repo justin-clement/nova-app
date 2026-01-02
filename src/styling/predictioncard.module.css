@@ -19,7 +19,7 @@
 .leagueName, .teamsPlaying, 
 .recommendationHeading, .recommendation {
     text-align: center;
-    font-family: "Libertinus Sans", "Trebuchet MS", "Times New Roman";
+    font-family: "Geom", "Trebuchet MS", "Times New Roman";
     font-weight: bold;
     margin: 10px;
 }

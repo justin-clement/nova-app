@@ -13,26 +13,33 @@ import HowWeOperate from './pages/HowWeOperate';
 import Messages from './pages/Messages';
 import AdminPage from './pages/AdminPage'
 import HomeArticle from './components/HomeArticle'
+import RootPage from './pages/RootPage'
+
 
 const router = createBrowserRouter([
-  {path: "/", element: <Homepage />},
-  {path: "/about", element: <AboutNova />}, 
-  {path: "/sign-up", element: <SignUp />},  
-  {path: "/sign-in", element: <SignIn />}, 
-  {path: "/profile/:nickname", element: <UserProfile />}, 
-  {path: "/operation", element: <HowWeOperate />},
-  {path: "/message", element: <Messages />}, 
-  {path: "/admin", element: <AdminPage />}, 
-  {path: "/test", element: <PredictionCard 
-    league="BUNDESLIGA"
-    home="RB Leipzig" 
-    away="Borussia Dortmund"
-    recommendation="Over 2.5 goals" /> },
-  {path: "/test2", element: <SubscriptionBadge subscription="NOVA B" />}, 
-  {path: "/homeArticle", element: <HomeArticle 
-    title="Supernova is LIVE!" 
-    content="Supernova is now live for all users. The ARCTURUS logic engine is 
-    now operational with an accuracy of 74%. Users can choose a subscription plan that suits them." />}
+  {
+    element: <RootPage />, 
+    children: [
+      {path: "/", element: <Homepage />},
+      {path: "/about", element: <AboutNova />}, 
+      {path: "/sign-up", element: <SignUp />},  
+      {path: "/sign-in", element: <SignIn />}, 
+      {path: "/profile/:nickname", element: <UserProfile />}, 
+      {path: "/operation", element: <HowWeOperate />},
+      {path: "/message", element: <Messages />}, 
+      {path: "/admin", element: <AdminPage />}, 
+      {path: "/test", element: <PredictionCard 
+        league="BUNDESLIGA"
+        home="RB Leipzig" 
+        away="Borussia Dortmund"
+        recommendation="Over 2.5 goals" /> },
+      {path: "/test2", element: <SubscriptionBadge subscription="NOVA B" />}, 
+      {path: "/homeArticle", element: <HomeArticle 
+        title="Supernova is LIVE!" 
+        content="Supernova is now live for all users. The ARCTURUS logic engine is 
+        now operational with an accuracy of 74%. Users can choose a subscription plan that suits them." />}
+    ]
+  }
 ])
 
 

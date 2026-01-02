@@ -6,6 +6,8 @@ import Subscription from "../components/Subscription";
 import { useEffect, useState } from "react";
 import styles from "../styling/userprofile.module.css";
 import axios from "axios";
+import server from "../api/axios";
+import { motion } from "framer-motion";
 
 import {LuHouse as HomeIcon, 
         LuGamepad2 as GamesIcon, 
@@ -59,9 +61,8 @@ function UserProfile() {
     });
 
     const getHomeInfo = async () => {
-        const url = 'http://localhost:8000/info';
         try {
-            const { data } = await axios.get(url, { withCredentials: true });
+            const { data } = await server.get("/info");
             if (data.status === false) {
                 return;
             } else if (data.status) {
@@ -78,9 +79,8 @@ function UserProfile() {
 
     // FUNCTION FOR FETCHING RECOMMENDATIONS FROM SERVER.
     const getRecommendations = async () => {
-        const url = 'http://localhost:8000/recommendations';
         try {
-            const { data } = await axios.post(url, { nick: nickname }, { withCredentials: true });
+            const { data } = await server.post("/recommendations", { nick: nickname });
             if (data.status) {
                 setRecommended({status: true, games: data.array});
             } else if (data.status === false) {
@@ -88,9 +88,9 @@ function UserProfile() {
             };
         } catch (error) {
             // DEMO RECOMMENDATIONS.
-            const match1 = {key: 1, league: '*', 
-                        home: '*', away: '*', 
-                        recommendation: '*'}
+            const match1 = {key: 1, league: 'League 1', 
+                        home: 'Team 1', away: 'Team 2', 
+                        recommendation: 'Over 2.5 goals | Both Teams to Score'}
             const match2 = {key: 2, league: 'League 2', 
                         home: 'Team 3', away: 'Team 4', 
                         recommendation: 'Over 2.5 goals'}
@@ -109,15 +109,14 @@ function UserProfile() {
     // STATE TO STORE A USER'S SUBSCRIPTION DETAILS.
     const [userDetails, setUserDetails] = useState({
         subscription: null, 
-        displayMessage: null
+        validityMessage: null
     });
 
     const logout = async () => {
-        const url = 'http://localhost:8000/logout';
         try {
-            const { data } = await axios.get(url, { withCredentials: true });
+            const { data } = await server.get('/logout');
             if (data.status) {
-                window.location.href = 'http://localhost:8000/';
+                window.location.href = 'http://localhost:5173/';
             }
         } catch (error) {
             console.error("An error occured during logout.")
@@ -127,16 +126,16 @@ function UserProfile() {
     // THIS CHECKS IF THE USER HAS A VALID SUBSCRIPTION.
     useEffect(() => {
         const getUserSub = async () => {
-            const url = `http://localhost:8000/subscriptions/${nickname}`;
             try {
-                const { data } = await axios.get(url); // BACKEND RESPONSE: {status: boolean, subscription: string, message: string}
+                const { data } = await server.get(`/subscriptions/${nickname}`); // BACKEND RESPONSE: {status: boolean, subscription: string, message: string}
                 if (data.status) {
-                    const userSub = data.subscription;
-                    const message = data.message;
-                    setUserDetails({subscription: userSub, displayMessage: message})
+                    setUserDetails({
+                        subscription: data.subscription, 
+                        validityMessage: data.validityMessage
+                    });
                 } else {
-                    const noSub = data.message;
-                    setUserDetails({subscription: false, displayMessage: noSub})
+                    const noSub = data.validityMessage;
+                    setUserDetails({subscription: false, validityMessage: noSub})
                 }
             } catch (error) {
                 console.error(`An error occured while checking ${nickname}'s subscription: ${error}`);
@@ -160,20 +159,23 @@ function UserProfile() {
                 <div>
                     <NovaHeader />
                     <div className={styles.userProfileContainer}>
-                        <div style={{
-                            display: "flex", 
-                            justifyContent: "right"
-                        }}>
+                        <motion.div 
+                            animate={{ x: [20, 0], opacity: [0, 1] }} 
+                            transition={{ duration: 0.6 }}
+                            style={{
+                                display: "flex", 
+                                justifyContent: "right"
+                            }}>
                             <h3 className={styles.userGreetingArea}>{nickname} <Tick /></h3>
-                        </div>
+                        </motion.div>
                         
                         {/* NAV BAR */}
                         <nav className={styles.navContainer}>
                             <ul className={styles.userNavigation}>
-                                <li onClick={showHome}> <HomeIcon /> Home</li>
-                                <li onClick={showSubscriptions}> <SubIcon /> Subscriptions</li>
-                                <li onClick={showTips}> <TipsIcon /> Tips</li>
-                                <li onClick={showGames}> <GamesIcon /> Games</li>
+                                <li onClick={showHome}> <HomeIcon size={20} /> Home</li>
+                                <li onClick={showSubscriptions}> <SubIcon size={20} /> Subscriptions</li>
+                                <li onClick={showTips}> <TipsIcon size={20} /> Tips</li>
+                                <li onClick={showGames}> <GamesIcon size={20} /> Games</li>
                             </ul>
                         </nav>
                         
@@ -181,7 +183,7 @@ function UserProfile() {
                         <div className={styles.displayArea}>
                             {view === "games" && <Games data={recommended} />}
                             {view === "tips" && <Tips  />} 
-                            {view === "subscriptions" && <Subscription subscriptionType={userDetails.subscription} />}
+                            {view === "subscriptions" && <Subscription details={userDetails} />}
                             {view === "home" ? 
                             <div>
                                 <p style={{
