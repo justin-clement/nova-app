@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
-import NovaHeader from "../components/NovaHeader"
-import axios from 'axios'
-import { Link, useLocation } from "react-router-dom"
-import "../styling/sign-up.css"
-import { SignUpSuccessCard, SignUpFailCard } from "../components/StatusCards"
+import { useEffect, useState } from "react";
+import NovaHeader from "../components/NovaHeader";
+import axios from 'axios';
+import { Link, useLocation } from "react-router-dom";
+import styles from "../styling/sign-up.module.css";
+import { SignUpSuccessCard, SignUpFailCard } from "../components/StatusCards";
+import { motion } from "framer-motion";
 
 
 function SignUp() {
@@ -104,32 +105,37 @@ function SignUp() {
     return (
         <>
             <NovaHeader />
-            <div className={`signup-page-container ${signUpDisplay ? "" : "hidden"}`}>
-                <div className="signup-card">
+            <motion.div 
+            initial={{opacity: 0}}
+            animate={{opacity: 1}} 
+            transition={{duration: 0.4}} 
+            className={`${styles.signupPageContainer} ${signUpDisplay ? '' : styles.hidden}`}>
+                <div className={styles.signupCard}>
                     <h2 style={{color: "brown"}}>Create Your Account</h2>
                     <form onSubmit={handleSubmit}>
                         <label>First Name: </label><br />
                         <input 
                         name="firstName" 
                         value={formData.firstName} 
-                        className="signup-input"
-                        onClick={handleChange} />
+                        className={styles.signupInput}
+                        onChange={handleChange} />
                         <br />
 
                         <label>Last Name: </label><br />
                         <input 
                         name="lastName" 
                         value={formData.lastName} 
-                        className="signup-input" 
-                        onClick={handleChange} />
+                        className={styles.signupInput} 
+                        onChange={handleChange} />
                         <br />
 
                         <label>Gender: </label><br />
                         <select 
                         name="gender" 
                         value={formData.gender} 
-                        className="signup-input" 
-                        onClick={handleChange} >
+                        className={styles.signupInput} 
+                        onChange={handleChange} >
+                            <option value="" disabled hidden>Select gender</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
@@ -139,7 +145,7 @@ function SignUp() {
                         <input 
                         name="email" 
                         value={formData.email} 
-                        className="signup-input" 
+                        className={styles.signupInput} 
                         onChange={handleChange} />
                         <br />
 
@@ -147,16 +153,16 @@ function SignUp() {
                         <input 
                         name="phoneNumber" 
                         value={formData.phoneNumber} 
-                        className="signup-input" 
-                        onClick={handleChange} />
+                        className={styles.signupInput} 
+                        onChange={handleChange} />
                         <br />
 
                         <label>Nickname: </label><br />
                         <input 
                         name="nickname" 
                         value={formData.nickname} 
-                        className="signup-input" 
-                        onClick={handleChange} />
+                        className={styles.signupInput} 
+                        onChange={handleChange} />
                         <p style={{
                             margin: "0", 
                             color: "grey", 
@@ -173,22 +179,22 @@ function SignUp() {
                         <input 
                         name="password" 
                         value={formData.password} 
-                        className="signup-input" 
-                        onClick={handleChange} />
+                        className={styles.signupInput} 
+                        onChange={handleChange} />
                         <br />
 
                         <label>Confirm Password: </label><br />
                         <input 
                         name="confirmPassword" 
                         value={formData.confirmPassword} 
-                        className="signup-input" 
-                        onClick={handleChange} />
+                        className={styles.signupInput} 
+                        onChange={handleChange} />
                         <br />
                         {validate}
                         <br />
 
                         <button 
-                        className="account-create-button" 
+                        className={styles.accountCreateButton} 
                         type="submit" 
                         onClick={handleSubmit}>Create Account</button>
                         <br />
@@ -200,7 +206,7 @@ function SignUp() {
                     <br />
                     <br />
                 </div>
-            </div>
+            </motion.div>
             {successPage.status ? <SignUpSuccessCard nickname={successPage.nickname} /> : null}
             {unsuccessPage.status ? <SignUpFailCard errorMessage={unsuccessPage.message} /> : null }
         </>

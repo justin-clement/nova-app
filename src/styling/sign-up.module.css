@@ -1,0 +1,50 @@
+.signup-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signupPageContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.signupCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signupInput {
+    margin: 3px;
+    width: 250px;
+    padding: 7px;
+    border-radius: 5px;
+    outline: 1px solid black;
+    font-family: 'Geom';
+    font-size: large;
+    border: none;
+}
+
+.signupInput:focus {
+    outline: 2px solid brown;
+}
+
+.accountCreateButton {
+    padding: 10px;
+    width: 50%;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: brown;
+}
+
+.hidden {
+    display: none;
+}

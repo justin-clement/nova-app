@@ -1,0 +1,29 @@
+.pageContainer {
+    padding: 5px;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery img {
+    margin: 2px;
+    margin-bottom: 10px;
+    border-radius: 24px;
+    border: 1px solid gray;
+}
+
+@media (min-width: 600px) {
+    .gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery img {
+        margin: 10px;
+        width: 300px;
+        height: auto;
+    }
+}

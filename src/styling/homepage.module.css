@@ -14,6 +14,7 @@
     text-align: center;
     width: 90%;
     margin: auto;
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .learnMoreButton {
@@ -38,7 +39,7 @@
 .authSection {
     display: flex;
     flex-direction: column;
-    
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
     justify-content: space-evenly;
     border: 1px solid grey;
     border-radius: 15px;

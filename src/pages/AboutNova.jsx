@@ -1,5 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom'
-import styles from '../styling/aboutnova.module.css'
+import { Link, useNavigate } from 'react-router-dom';
+import styles from '../styling/aboutnova.module.css';
+import { motion } from 'framer-motion';
+import paystackValid from '../assets/images/paystackValid.png';
 
 function AboutNova() {
 
@@ -14,7 +16,11 @@ function AboutNova() {
     return (
         <>
             <div className={styles.pageContainer}>
-                <h1 className={styles.header}>about supernova</h1>
+                <motion.h1 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }} 
+                className={styles.header}>about supernova</motion.h1>
                 <br />
 
                 <p>Supernova is a digital sports analysis service, specializing in delivering 
@@ -40,11 +46,26 @@ function AboutNova() {
                     offer two subscription tiers: NOVA A at N4500 and NOVA B at N8000. Either subscription 
                     covers 4 match weeks.</p>
                 <br />
+
+                <div style={{
+                    display: "flex", 
+                    justifyContent: "center"
+                }}>
+                    <img style={{
+                        borderRadius: "10px"
+                    }}
+                    width={350} 
+                    src={paystackValid} 
+                    alt="Supernova accepts payments securely via Paystack." />
+                </div>
+                <br />
                 <Link to='#'>Report Sheet - ARCTURUS</Link><br />
-                <Link to='#'>Proof-of-Play</Link>
+                <Link to='/proof-of-play'>Proof-of-Play</Link>
                 <br />
                 <br />
+
                 <button className={styles.backHomeButton} onClick={goToHome}>Back to Home</button>
+
                 <br />
                 <br />
             </div>

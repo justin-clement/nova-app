@@ -2,6 +2,7 @@ import NovaHeader from '../components/NovaHeader'
 import styles from '../styling/homepage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import SignIn from './SignIn';
+import { motion } from 'framer-motion';
 
 
 function Homepage() {
@@ -16,7 +17,11 @@ function Homepage() {
         <>
             <div className={styles.homepageContainer}>
                 <NovaHeader />
-                <div className={styles.heroSection}>
+                <motion.div 
+                initial={{y: 20, opacity: 0}}
+                animate={{y: 0, opacity: 1}} 
+                transition={{duration: 0.5}}
+                className={styles.heroSection}>
                     <h1 style={{fontSize: "50px"}}>Welcome to <span>supernova</span></h1>
                     <p style={{
                         fontSize: "24px"
@@ -27,10 +32,14 @@ function Homepage() {
                     <br />
 
                     <button className={styles.learnMoreButton} onClick={goToAbout}>Learn More</button>
-                </div>
+                </motion.div>
                 <br />
                 
-                <div className={styles.authSection}>
+                <motion.div 
+                initial={{y: 20, opacity: 0}}
+                animate={{y: 0, opacity: 1}} 
+                transition={{duration: 1}}
+                className={styles.authSection}>
                     <SignIn />
                     <br />
                     
@@ -39,7 +48,7 @@ function Homepage() {
                         color: "grey"
                     }}>If you don't have a Supernova account, 
                         you can sign up for one <Link to='/sign-up'>here</Link>.</p>
-                </div>
+                </motion.div>
                 <div className={styles.footerSection}>
                     <p style={{textAlign: "center"}}>© {new Date().getFullYear()} Supernova Software Services.</p>
                 </div>

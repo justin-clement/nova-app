@@ -100,6 +100,7 @@ function UserProfile() {
             const match4 = {key: 4, league: 'League 4', 
                         home: 'Team 7', away: 'Team 8', 
                         recommendation: 'Both Teams to Score'}
+                        
             const demo_array = [match1, match2, match3, match4]
             setRecommended({status: true, games: demo_array})
             console.error(`An error occured while fetching recommendations (${error}).`);

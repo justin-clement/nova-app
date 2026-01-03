@@ -6,13 +6,12 @@ import AboutNova from './pages/AboutNova'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import UserProfile from './pages/UserProfile'
-import { SignUpFailCard, SignUpSuccessCard } from './components/StatusCards'
-import Tips from './components/Tips'
 import SubscriptionBadge from './components/SubscriptionBadge'
 import HowWeOperate from './pages/HowWeOperate';
 import Messages from './pages/Messages';
 import AdminPage from './pages/AdminPage'
 import HomeArticle from './components/HomeArticle'
+import ProofOfPlay from './pages/ProofOfPlay'
 import RootPage from './pages/RootPage'
 
 
@@ -23,7 +22,8 @@ const router = createBrowserRouter([
       {path: "/", element: <Homepage />},
       {path: "/about", element: <AboutNova />}, 
       {path: "/sign-up", element: <SignUp />},  
-      {path: "/sign-in", element: <SignIn />}, 
+      {path: "/sign-in", element: <SignIn />},  
+      {path: "/proof-of-play", element: <ProofOfPlay />},
       {path: "/profile/:nickname", element: <UserProfile />}, 
       {path: "/operation", element: <HowWeOperate />},
       {path: "/message", element: <Messages />}, 

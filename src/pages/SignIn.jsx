@@ -3,6 +3,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import styles from '../styling/sign-in.module.css'
 import { LuLogIn as LoginIcon } from "react-icons/lu";
+import server from "../api/axios";
 
 function SignIn() {
 
@@ -29,11 +30,8 @@ function SignIn() {
     };
 
     const handleSubmit = async () => {
-        const url = 'http://localhost:8000/sign-in';
-
         try {
-            const { data } = axios.post(url, formData);
-
+            const { data } = await server.post('/sign-in', formData);
             if (data.status) {
                 navigate(`/profile/${formData.nickname}`, {replace: true})
             } else if (data.status == false) {
